@@ -1,6 +1,6 @@
 # TektonSimulator
 
-It is a work in progress.
+This is work in progress worked on during my freetime 
 
 ### `Info`
 
