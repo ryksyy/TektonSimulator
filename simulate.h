@@ -13,34 +13,46 @@ class simulate : public QObject
 
 public:
     simulate();
-    QString runSimulation(int times);
-    //for different gear setups can manually insert numbers later from gui
+    void runSimulation(int times);
+    //for different gear setups can manually insert numbers later from gui (TODO)
     void setGear(float gearStr, float gearAcc, bool inqBonus);
 
 
 private:
-    void firstRotation();
-    void secondRotation();
+    void firstRotation(int fiveTick, int fourTick, bool usingVuln);
+    void secondRotation(bool closeLure);
+    float defRegen(float tekDef);
 
-    //inq setup gear values
-    float gearStr = 49;
-    float avernicStr = 8;
-    float scytheStr = 75;
-    float maceStr = 89;
-    float hammerStr = 95;
+    //different hit calcs, todo hit fang
+    float hitScythe(float maxHit, float accuracy);
+    float hitMace(float maxHit, float accuracy);
+    float hitHammer(float maxHit, float accuracy);
+    float hitVenge(bool isEnraged);
+    bool hitVuln(float accuracy);
 
-    //inq setup accuracy values
-    float gearAcc = 66;
-    float scytheAcc = 30;
-    float maceAcc = 95;
-    float hammerAcc = 95;
-    float avernicAcc = 30;
 
     float tektonHp = 450;
     float tekDef = 246;
 
+    int firstAnvil4t = 3;
+    int firstAnvil5t = 4;
+
+    bool closeLure = false;
+    bool usingVuln = true;
+
+    float maceMax;
+    float hammerMax;
+    float scytheMax;
+
+    float maceAcc;
+    float maceAccEnraged;
+    float scytheAcc;
+    float hammerAcc;
+
+    calcs *calc = new calcs;
+
 signals:
-    void sendData(float);
+    void sendData(QString);
 };
 
 #endif // SIMULATE_H

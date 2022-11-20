@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     sim = new simulate();
-    connect(sim, SIGNAL(sendData(float)), this, SLOT(updateResult(float)));
+    connect(sim, SIGNAL(sendData(QString)), this, SLOT(updateResult(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -18,11 +18,12 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_calculate_clicked()
 {
-    sim->setGear(5,5,false);
+    sim->runSimulation(10000);
+    ui->result->setText("Calculating 1 anvil rate. . .");
 }
 
-void MainWindow::updateResult(float chance)
+void MainWindow::updateResult(QString result)
 {
-    ui->result->setText(QString::number(chance));
+    ui->result->setText(result);
 }
 

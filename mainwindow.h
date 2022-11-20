@@ -22,7 +22,7 @@ private:
 
 private slots:
     void on_calculate_clicked();
-    void updateResult(float);
+    void updateResult(QString);
 
 private:
     Ui::MainWindow *ui;

@@ -5,7 +5,7 @@ calcs::calcs()
 
 }
 
-float calcs::calcAcc(float weaponAccuracy, float tekDef, bool isAccurate, bool inqBonus)
+float calcs::calcAcc(float weaponAccuracy, float tekDef, bool isAccurate, bool inqBonus, bool isEnraged)
 {
     float effAtt = (119)*(1.2);
     effAtt = floor(effAtt);
@@ -20,7 +20,14 @@ float calcs::calcAcc(float weaponAccuracy, float tekDef, bool isAccurate, bool i
 
     accRoll = floor(accRoll);
 
-    float tempDef = (tekDef + 9) * (105+64);
+    float tempDef;
+
+    if(isEnraged){
+        tempDef = (tekDef + 9) * (180+64);
+    }else{
+        tempDef = (tekDef + 9) * (105+64);
+    }
+
     if(accRoll > tempDef){
         tempDef += 2;
         accRoll +=1;

@@ -9,10 +9,11 @@ class calcs
 public:
     calcs();
 
-    float calcAcc(float weaponAccuracy, float tekDef, bool isAccurate, bool inqBonus);
+    float calcAcc(float weaponAccuracy, float tekDef, bool isAccurate, bool inqBonus, bool isEnraged);
     float calcMax(int weaponStr, bool isAggressive, bool inqBonus);
     float hit(float max, float acc);
 
+    //defender is included in base so scythe stats need to be lowered accordingly
     float baseMeleeStr = 57;
     float scytheMeleeStr = 67;
     float maceMeleestr = 89;
