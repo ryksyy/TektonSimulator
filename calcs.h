@@ -15,13 +15,13 @@ public:
 
     //defender is included in base so scythe stats need to be lowered accordingly
     float baseMeleeStr = 57;
-    float scytheMeleeStr = 67;
-    float maceMeleestr = 89;
+    float fiveTickStr = 67;
+    float fourTickStr = 89;
     float hammerMeleestr = 85;
 
     float baseAcc = 96;
-    float scytheMeleeAcc = 2;
-    float maceMeleeAcc = 95;
+    float fiveTickAcc = 2;
+    float fourTickAcc = 95;
     float hammerMeleeAcc = 95;
 
 private:
